@@ -74,7 +74,7 @@ def get_7th_chords(num_chords = 30, probabilities = [.2, .5, .2, .1]):
 		translationally invariant, i.e., p(x to y) = p(x+z to y+z) for all z. '''
 	chord_tones = np.zeros([num_chords, 4], dtype = int)
 	master_arr = np.empty([2, 4, 3], dtype = list) # 7th chords on top, 
-												   # m6 chords on bottom
+						       # m6 chords on bottom
 	xyz = np.zeros([num_chords, 3], dtype = int) # multiindex of master_arr
 	for i in range(12):
 		master_arr[0, int(np.floor(i/3)), i % 3] = [letters[5 * i % 12], '7']
@@ -92,7 +92,7 @@ def get_7th_chords(num_chords = 30, probabilities = [.2, .5, .2, .1]):
 			xyz[i, 1] = (xyz[i - 1, 1] + switch_family) % 4 # choose a family
 		if xyz[i, 0] != xyz[i-1, 0]:# if change minor to major or major to 
 			xyz[i,1:] = xyz[i-1,1:] # minor, do nothing else, so for example,
-									# C7 goes to Fm6 and no other minor chord.
+						# C7 goes to Fm6 and no other minor chord.
 		random_chords += [master_arr[tuple(xyz[i, :].T)]]
 		ind = np.argwhere(letters == master_arr[tuple(xyz[i, :].T)][0])[0][0]
 		if xyz[i, 0] == 0:
