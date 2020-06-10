@@ -1,5 +1,5 @@
 ''' pitchHelper.py is a collection of methods and data related to computing 
-	with the pitches on the piano or the 12 pitche classes C, Db, ... Bb, B.'''
+	with the pitches on the piano or the 12 pitch classes C, Db, ... Bb, B.'''
 import numpy as np
 import itertools
 import matplotlib.pyplot as plt
